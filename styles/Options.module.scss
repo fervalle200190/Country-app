@@ -1,0 +1,66 @@
+.ul-options {
+    display: none;
+    list-style-type: none;
+    padding: 0;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    background-color: #fff;
+    border-radius: 3px;
+    margin-top: 4px;
+    box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.055);
+    position: absolute;
+    width: 200px;
+    animation: appear 0.1s ease-in-out;
+    li {
+        padding-left: 20px;
+        cursor: pointer;
+        font-weight: 600;
+        font-size: 13px;
+        height: 26px;
+        display: flex;
+        align-items: center;
+    }
+}
+
+
+.show {
+    display: block;
+}
+
+.upper-option {
+    background-color: #fff;
+    box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.055);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 200px;
+    padding: 0 23px;
+    padding-right: 18px;
+    height: 50px;
+    margin-top: 47px; 
+    border-radius: 3px;
+    cursor: pointer;
+    h2 {
+        font-size: 12.7px;
+        font-weight: 600;
+    }
+    svg {
+        height: 12px;
+        width: 12px;
+        transition: 0.2s ease-in-out;
+    }
+    .turn {
+        transform: rotate(-180deg);
+    }
+}
+
+@keyframes appear {
+    0% {
+        opacity: 0;
+        transform: scale(0.1);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}

@@ -1,0 +1,43 @@
+.navbar-container {
+    display: flex;
+    justify-content: space-between;
+    height: 90px;
+    align-items: center;
+    h1 {
+        margin: 0;
+    }
+}
+
+.header-container {
+    width: 100%;
+    box-shadow: 0 3px 4px 2px rgba(0, 0, 0, 0.054);
+    z-index: 100;
+    position: relative;
+}
+
+.dark-title {
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.switch-container {
+    position: relative;
+    right: 20px;
+}
+
+.moon-container {
+    position: relative;
+    display: inline-block;
+    top: 3px;
+    margin-right: 7px;
+    svg {
+        height: 15px;
+        width: 15px;
+    }
+}
+
+.logo-main {
+    position: relative;
+    left: 20px;
+    font-size: 18px;
+}
