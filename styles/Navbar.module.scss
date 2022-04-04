@@ -23,6 +23,7 @@
 .switch-container {
     position: relative;
     right: 20px;
+    cursor: pointer;
 }
 
 .moon-container {
@@ -40,4 +41,18 @@
     position: relative;
     left: 20px;
     font-size: 18px;
+}
+
+@media screen and (min-width: 750px) {
+    .header-container {
+        display: flex;
+        justify-content: center;
+    }
+    .navbar-container {
+        width: 85%;
+        height: 70px;
+        h1 {
+            font-size: 20px;
+        }
+    }
 }

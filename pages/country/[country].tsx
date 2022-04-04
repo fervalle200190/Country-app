@@ -80,35 +80,31 @@ const Country: NextPage<Props> = ({ oneCountry, allCountries }) => {
           </button>
           <div className={styles["deep-details"]}>
             <div className={styles["image-container"]}>
-              <img
-                src={oneCountry.flags.svg}
-                alt={oneCountry.name.common}
-                style={{ width: "100%" }}
-              />
+              <img src={oneCountry.flags.svg} alt={oneCountry.name.common} />
             </div>
-            <article>
+            <article className={styles['article-container']}>
               <h2>{oneCountry.name.common}</h2>
               <div className={styles["country-detailed"]}>
-                <ul>
-                  <li>
-                    <b> Native Name:</b> {getName() || "No Information"}
-                  </li>
-                  <li>
-                    <b> Population:</b>{" "}
-                    {toDecimal(oneCountry.population.toString())}
-                  </li>
-                  <li>
-                    <b> Region:</b> {oneCountry.region}
-                  </li>
-                  <li>
-                    <b> Sub Region:</b>{" "}
-                    {oneCountry.subregion || "No Information"}
-                  </li>
-                  <li>
-                    <b> Capital:</b> {oneCountry.capital || "No Information"}
-                  </li>
-                </ul>
-                <div>
+                <div className={styles['inner-detailed']}>
+                  <ul>
+                    <li>
+                      <b> Native Name:</b> {getName() || "No Information"}
+                    </li>
+                    <li>
+                      <b> Population:</b>{" "}
+                      {toDecimal(oneCountry.population.toString())}
+                    </li>
+                    <li>
+                      <b> Region:</b> {oneCountry.region}
+                    </li>
+                    <li>
+                      <b> Sub Region:</b>{" "}
+                      {oneCountry.subregion || "No Information"}
+                    </li>
+                    <li>
+                      <b> Capital:</b> {oneCountry.capital || "No Information"}
+                    </li>
+                  </ul>
                   <ul className={styles["second-ul"]}>
                     <li>
                       <b> Top Level Domain:</b>{" "}
@@ -121,17 +117,17 @@ const Country: NextPage<Props> = ({ oneCountry, allCountries }) => {
                       <b> Languages:</b> {countryLang.join(`, `)}
                     </li>
                   </ul>
-                  <div className={styles["border-section"]}>
-                    <h4>Border Countries:</h4>
-                    <div>
-                      {borders.length > 1 ? (
-                        borders.map((el) => (
-                          <BorderButton key={el.name} name={el.name} />
-                        ))
-                      ) : (
-                        <button>No information</button>
-                      )}
-                    </div>
+                </div>
+                <div className={styles["border-section"]}>
+                  <h4>Border Countries:</h4>
+                  <div>
+                    {borders.length > 1 ? (
+                      borders.map((el) => (
+                        <BorderButton key={el.name} name={el.name} />
+                      ))
+                    ) : (
+                      <button>No information</button>
+                    )}
                   </div>
                 </div>
               </div>

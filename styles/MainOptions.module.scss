@@ -6,6 +6,7 @@
     box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.055);
     padding-left: 80px;
     border-radius: 3px;
+    transition: all 0.2s ease-in-out;
     &::placeholder {
         color: #bbb;
     }
@@ -42,5 +43,27 @@
         path {
             stroke: #999
         }
+    }
+}
+
+@media screen and (min-width: 800px) {
+    .flex-wrapper {
+      flex-wrap: nowrap;
+      width: 85%;
+    }
+
+    .input-search {
+        width: 450px;
+        height: 46px;
+        font-size: 12px;
+    }
+    .input-search:hover {
+        background-color: #efefef;
+    }
+    .main-options-container {
+        padding-top: 43px;
+    }
+    .search-logo svg {
+        stroke: 2px;
     }
 }
