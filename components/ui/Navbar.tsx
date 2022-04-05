@@ -27,7 +27,7 @@ export const Navbar = () => {
       changeTheme("light")
       localStorage.setItem("theme", "false")
     }
-  }, [changeTheme]);
+  }, []);
 
   return (
     <header className={`${styles["header-container"]} ${theme === "light"? "": styles.dark }`}>

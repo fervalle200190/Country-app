@@ -29,7 +29,7 @@ const Home: NextPage<CountryProps> = ({ response }) => {
   };
   useEffect(() => {
     setCountrylist(response);
-  }, [setCountrylist, response]);
+  }, []);
   return (
     <MainLayout>
       <MainOptions handleList={handleList} findCountry={findCountry} />
