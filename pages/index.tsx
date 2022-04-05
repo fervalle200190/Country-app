@@ -29,7 +29,7 @@ const Home: NextPage<CountryProps> = ({ response }) => {
   };
   useEffect(() => {
     setCountrylist(response);
-  }, []);
+  }, [setCountrylist, response]);
   return (
     <MainLayout>
       <MainOptions handleList={handleList} findCountry={findCountry} />
@@ -44,7 +44,7 @@ const Home: NextPage<CountryProps> = ({ response }) => {
           <h3
             style={{
               textAlign: "center",
-              color: `${theme === "dark" ? "#fff" : "#000"}`,
+              color: `${theme === 'dark' ? '#fff' : '#000'}`,
             }}
           >
             There's no Information

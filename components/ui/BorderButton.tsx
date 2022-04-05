@@ -7,7 +7,7 @@ interface Props {
 
 export const BorderButton: NextPage<Props> = ({ name }) => {
   return (
-    <Link href={`/country/${name}`}>
+    <Link href={`/country/${name}`} passHref>
       <button>{name}</button>
     </Link>
   );
