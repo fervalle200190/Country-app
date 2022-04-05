@@ -1,6 +1,6 @@
 import { GetStaticPaths, GetStaticProps, NextPage } from "next";
 import { useRouter } from "next/router";
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { countryApi } from "../../api";
 import { MainLayout } from "../../components/layouts";
 import { CountryRes } from "../../interfaces";
@@ -8,6 +8,7 @@ import styles from "../../styles/CountryInfo.module.scss";
 import Arrow from "../../public/images/arrow-back-outline.svg";
 import { toDecimal } from "../../util";
 import { BorderButton } from "../../components/ui";
+import { ThemeContext } from "../../context";
 
 interface Props {
   oneCountry: CountryRes;
@@ -70,11 +71,17 @@ const Country: NextPage<Props> = ({ oneCountry, allCountries }) => {
   const handleRe = () => {
     router.push(`/`);
   };
+  const { theme } = useContext(ThemeContext);
   return (
     <MainLayout title={oneCountry.name.common}>
       <div>
         <div className={styles["country-information"]}>
-          <button onClick={handleRe} className={styles["back-button"]}>
+          <button
+            onClick={handleRe}
+            className={`${styles["back-button"]} ${
+              theme === "dark" ? styles["dark-back"] : ""
+            }`}
+          >
             <Arrow />
             Back
           </button>
@@ -82,10 +89,14 @@ const Country: NextPage<Props> = ({ oneCountry, allCountries }) => {
             <div className={styles["image-container"]}>
               <img src={oneCountry.flags.svg} alt={oneCountry.name.common} />
             </div>
-            <article className={styles['article-container']}>
+            <article
+              className={`${styles["article-container"]} ${
+                theme === "dark" ? styles.dark : ""
+              }`}
+            >
               <h2>{oneCountry.name.common}</h2>
-              <div className={styles["country-detailed"]}>
-                <div className={styles['inner-detailed']}>
+              <div className={`${styles["country-detailed"]}`}>
+                <div className={styles["inner-detailed"]}>
                   <ul>
                     <li>
                       <b> Native Name:</b> {getName() || "No Information"}

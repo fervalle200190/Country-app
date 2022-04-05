@@ -18,12 +18,12 @@
     overflow: hidden;
     box-shadow: 0 5px 9px 1px rgba(0, 0, 0, 0.062);
     margin-bottom: 35px;
-    transition: transform 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
     cursor: pointer;
 }
 
 .card-container:hover {
-    transform: scale(1.01);
+    background: #efefef41;
 }
 
 .details-container {
@@ -45,6 +45,15 @@
     width: 100%;
     display: flex;
     justify-content: center;
+}
+
+.dark {
+    background: hsl(209, 23%, 22%);
+    color: #fff;
+}
+
+.dark:hover {
+    background: hsla(0, 0%, 100%, 0.123);
 }
 
 @media screen and (min-width: 750px) {

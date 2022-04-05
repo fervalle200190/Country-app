@@ -1,5 +1,7 @@
 import { NextPage } from "next";
 import { useRouter } from "next/router";
+import { useContext } from "react";
+import { ThemeContext } from "../../context";
 import { Info } from "../../interfaces";
 import styles from "../../styles/CountryCard.module.scss";
 
@@ -9,12 +11,13 @@ interface Props {
 
 export const CountryCard: NextPage<Props> = ({ el }) => {
   const router = useRouter()
+  const {theme} = useContext(ThemeContext)
   const handleClick = ()=> {
     router.push(`/country/${el.name}`)
   }
   return (
-    <div className={styles['flex-card']} onClick={handleClick}>
-      <div className={styles["card-container"]}>
+    <div className={`${styles['flex-card']}`} onClick={handleClick}>
+      <div className={`${styles["card-container"]} ${theme === 'dark'? styles.dark: ""}`}>
         <div className={styles["card-img-cont"]}>
           <img src={el.flags} alt={el.name} className={styles["card-image"]} />
         </div>

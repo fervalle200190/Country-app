@@ -2,6 +2,7 @@
   padding-top: 35px;
   padding-left: 25px;
   padding-right: 25px;
+  padding-bottom: 60px;
   width: 100%;
   .back-button {
     margin-bottom: 45px;
@@ -14,7 +15,9 @@
     font-weight: 600;
     background: #fff;
     border: none;
-    box-shadow: 0 0 5px 2.3px rgba(0, 0, 0, 0.158);
+    box-shadow: 0 0 4px 1px rgba(0, 0, 0, 0.098);
+    cursor: pointer;
+    transition: all 0,2s ease-in-out;
     svg {
       width: 15px;
       height: 15px;
@@ -82,6 +85,32 @@
     white-space: nowrap;
     overflow: hidden;
     cursor: pointer;
+    transition: all 0.2s ease-in-out;
+  }
+}
+
+.dark-back {
+  background: hsl(209, 23%, 22%) !important;
+  color: #fff;
+  transition: background 0.2s ease-in-out;
+  svg path {
+    fill: #fff
+  }
+}
+
+.dark-back:hover {
+  background: hsla(0, 0%, 100%, 0.123) !important;
+}
+
+.dark {
+  color: #fff;
+  h2 {
+    color: #fff;
+  }
+  button {
+    background: hsl(209, 23%, 22%);
+    color: #fff;
+    border: 1px solid hsl(209, 23%, 22%);
   }
 }
 
@@ -89,6 +118,13 @@
   .country-information {
     max-width: 85%;
     margin: auto;
+    padding-top: 50px;
+    .back-button {
+        font-size: 12px;
+        height: 29px;
+        width: 95px;
+        border-radius: 4px;
+    }
     img {
         object-fit: contain;
     }
@@ -102,10 +138,11 @@
       padding-right: 50px;
       max-width: 100%;
       height: auto;
+      max-height: 400px;
   }
   .article-container {
       min-width: 357px;
-      width: 100%;
+      width: 73%;
   }
   .country-detailed {
       max-width: 100%;
@@ -123,12 +160,18 @@
   .border-section {
       display: flex;
       h4 {
-          font-size: 13px;
+          font-size: 14px;
           width: 130px;
       }
       div {
           align-items: center;
           width: 80%;
       }
-  }
+      button {
+          font-size: 12px;
+          height: 23px;
+          width: 80px;
+          box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.042);
+      }
+    }
 }

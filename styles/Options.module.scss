@@ -10,6 +10,7 @@
     box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.055);
     position: absolute;
     width: 200px;
+    transition: all 0.2s ease-in-out;
     animation: appear 0.1s ease-in-out;
     li {
         padding-left: 20px;
@@ -40,6 +41,7 @@
     margin-top: 47px; 
     border-radius: 3px;
     cursor: pointer;
+    transition: all 0.2s ease-in-out;
     h2 {
         font-size: 12.7px;
         font-weight: 600;
@@ -54,6 +56,17 @@
     }
 }
 
+.dark {
+    .upper-option, .ul-options {
+        background: hsl(209, 23%, 22%);
+        color: #fff;
+    }
+}
+
+.dark .ul-options li:hover {
+    background: hsla(0, 0%, 100%, 0.123);
+}
+
 @keyframes appear {
     0% {
         opacity: 0;
@@ -65,7 +78,7 @@
     }
 }
 
-@media screen and (min-width: 800px) {
+@media screen and (min-width: 820px) {
     .ul-options {
         width: 180px;
         padding-left: 10px;
