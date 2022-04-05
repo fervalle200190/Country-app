@@ -23,7 +23,8 @@ export const MainOptions: NextPage<Props> = ({ handleList, findCountry }) => {
   };
   const handleInput = (e: React.ChangeEvent<HTMLInputElement>) => {
     setInputSearch(e.target.value);
-    findCountry(e.target.value)
+    let convert = e.target.value.normalize("NFD").replace(/[\u0300-\u036f]/g, "")
+    findCountry(convert)
     if(onRegion !== initialRegion) {
       setOnRegion(initialRegion)
     }

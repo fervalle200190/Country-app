@@ -11,7 +11,7 @@ import { ThemeContext, ThemeProvider } from "../context";
 
 const Home: NextPage<CountryProps> = ({ response }) => {
   const [countrylist, setCountrylist] = useState<Info[]>([]);
-  const { theme } = useContext(ThemeContext)
+  const { theme } = useContext(ThemeContext);
   const handleList = (c: string) => {
     const region = response.filter((el) => el.region === c);
     setCountrylist(region);
@@ -31,16 +31,27 @@ const Home: NextPage<CountryProps> = ({ response }) => {
     setCountrylist(response);
   }, []);
   return (
-      <MainLayout>
-        <MainOptions handleList={handleList} findCountry={findCountry} />
-        <div className={`${styles["grid-container"]} ${theme === 'dark'? styles.dark: ""}`}>
-          {countrylist.length > 0 ? (
-            countrylist.map((el, index) => <CountryCard el={el} key={index} />)
-          ) : (
-            <h3 style={{ textAlign: "center" }}>There's no Information</h3>
-          )}
-        </div>
-      </MainLayout>
+    <MainLayout>
+      <MainOptions handleList={handleList} findCountry={findCountry} />
+      <div
+        className={`${styles["grid-container"]} ${
+          theme === "dark" ? styles.dark : ""
+        }`}
+      >
+        {countrylist.length > 0 ? (
+          countrylist.map((el, index) => <CountryCard el={el} key={index} />)
+        ) : (
+          <h3
+            style={{
+              textAlign: "center",
+              color: `${theme === "dark" ? "#fff" : "#000"}`,
+            }}
+          >
+            There's no Information
+          </h3>
+        )}
+      </div>
+    </MainLayout>
   );
 };
 
