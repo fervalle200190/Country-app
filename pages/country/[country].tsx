@@ -47,7 +47,7 @@ const Country: NextPage<Props> = ({ oneCountry, allCountries }) => {
   useEffect(() => {
     getLang();
     getBorders();
-  }, []);
+  }, [oneCountry, allCountries]);
   const getName = () => {
     if (!oneCountry.name.nativeName) return "No Information";
     let obj = oneCountry.name.nativeName;
