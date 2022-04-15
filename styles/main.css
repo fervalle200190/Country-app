@@ -10,3 +10,18 @@ body {
     box-sizing: border-box;
     -webkit-tap-highlight-color: transparent;
 }
+
+.icon-loading {
+    margin-top: 50px;
+    width: 80px;
+    position: absolute;
+    width: 100%;
+}
+
+.icon-loading circle {
+    fill: #999;
+}
+
+.dark-loader circle {
+    fill: #fff;
+}

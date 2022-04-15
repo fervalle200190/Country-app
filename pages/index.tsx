@@ -7,14 +7,17 @@ import { CountryRes, CountryProps, Info } from "../interfaces";
 import { toDecimal } from "../util";
 import styles from "../styles/Index.module.scss";
 import { useContext, useEffect, useState } from "react";
-import { ThemeContext, ThemeProvider } from "../context";
+import { ThemeContext } from "../context";
+import { ThreeDots } from "react-loading-icons";
 
 const Home: NextPage<CountryProps> = ({ response }) => {
   const [countrylist, setCountrylist] = useState<Info[]>([]);
+  const [loader, setLoader] = useState(true);
   const { theme } = useContext(ThemeContext);
   const handleList = (c: string) => {
     const region = response.filter((el) => el.region === c);
     setCountrylist(region);
+    setLoader(false);
   };
   const findCountry = (b: string) => {
     if (b === "") return setCountrylist(response);
@@ -23,8 +26,10 @@ const Home: NextPage<CountryProps> = ({ response }) => {
     );
     if (countries === undefined) {
       setCountrylist([]);
+      setLoader(false);
     } else {
       setCountrylist(countries);
+      setLoader(false);
     }
   };
   useEffect(() => {
@@ -33,23 +38,26 @@ const Home: NextPage<CountryProps> = ({ response }) => {
   return (
     <MainLayout>
       <MainOptions handleList={handleList} findCountry={findCountry} />
+      {loader && countrylist.length <= 0 && (
+        <ThreeDots className={`${theme === "dark" ? "dark-loader" : ""}`} />
+      )}
       <div
         className={`${styles["grid-container"]} ${
           theme === "dark" ? styles.dark : ""
         }`}
       >
-        {countrylist.length > 0 ? (
-          countrylist.map((el, index) => <CountryCard el={el} key={index} />)
-        ) : (
-          <h3
-            style={{
-              textAlign: "center",
-              color: `${theme === 'dark' ? '#fff' : '#000'}`,
-            }}
-          >
-            There's no Information
-          </h3>
-        )}
+        {countrylist.length > 0
+          ? countrylist.map((el, index) => <CountryCard el={el} key={index} />)
+          : loader === false && (
+              <h3
+                style={{
+                  textAlign: "center",
+                  color: `${theme === "dark" ? "#fff" : "#000"}`,
+                }}
+              >
+                There's no Information
+              </h3>
+            )}
       </div>
     </MainLayout>
   );
